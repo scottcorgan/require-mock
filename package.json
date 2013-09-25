@@ -1,0 +1,29 @@
+{
+  "name": "require-mock",
+  "version": "0.0.1",
+  "description": "Intercept require() and mock Node modules while unit testing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottcorgan/require-mock.git"
+  },
+  "keywords": [
+    "test",
+    "unit",
+    "tdd",
+    "mock",
+    "require"
+  ],
+  "author": "Scott Corgan",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/scottcorgan/require-mock/issues"
+  },
+  "devDependencies": {
+    "tape": "~1.1.1",
+    "resolve": "~0.5.1"
+  }
+}
