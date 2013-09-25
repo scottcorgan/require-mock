@@ -6,10 +6,18 @@ var internals = requireMock.internals;
 var _require = requireMock.require;
 
 test('Resolves modules normally', function (t) {
+  
   t.plan(1);
   
   var mockFs = _require('fs');
   t.deepEqual(mockFs, fs, 'module loaded');
+});
+
+test('Sets base directory', function (t) {
+  t.plan(1);
+  
+  requireMock.setBaseDir(__dirname);
+  t.equal(internals.baseDir, __dirname, 'set to current directory');
 });
 
 test('Resolves directory path', function (t) {
@@ -32,12 +40,12 @@ test('Adds modules to mocked list when passed in', function (t) {
   t.ok(internals.mockedModules.someModule, 'added module');
 });
 
-// test('Resolves mocked modules when required', function (t) {
-//   t.plan(1);
+test.only('Resolves mocked modules when required', function (t) {
+  t.plan(1);
   
-//   var exportsModule = _require('fixtures/exports_module', {
-//     path: 'path'
-//   });
+  var exportsModule = _require('fixtures/exports_module', {
+    path: 'path'
+  });
   
-//   t.deepEqual(exportsModule.path(), 'path', 'mocked required module');
-// });
+  t.deepEqual(exportsModule.path(), 'path', 'mocked required module');
+});
